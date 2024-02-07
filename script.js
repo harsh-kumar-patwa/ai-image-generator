@@ -1,6 +1,6 @@
 let generateForm = document.querySelector(".generatorForm");
 let gallery = document.querySelector(".gallery");
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "harshsk-Gd9PHEM0VneKViuV8c2NT3BlbkFJdkbt2tf97tHi3oCIbGPk";
 let isImageGenerating = false;
 
 const updateCards = function(imageDataArray){
@@ -27,7 +27,8 @@ let imageGenerate = async function(imagePrompt,quantity){
             method:"POST",//post is used to send a request to server to update or create a resource
             headers:{
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${OPENAI_API_KEY}`
+                "Authorization": `Bearer ${OPENAI_API_KEY.substring(5)}`,
+                
             },
             body: JSON.stringify({
                 prompt: imagePrompt,
