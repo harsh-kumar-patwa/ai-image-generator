@@ -2,6 +2,7 @@ let generateForm = document.querySelector(".generatorForm");
 let gallery = document.querySelector(".gallery");
 const OPENAI_API_KEY = "harshsk-proj-UIj1nvoqbbgUjHAltljRT3BlbkFJ57aL6o8xdQ9tGXsLOMu4";
 let isImageGenerating = false;
+const model = 'dall-e-3';
 
 const updateCards = function(imageDataArray){
     imageDataArray.forEach(function(imageObject,index){
@@ -32,6 +33,8 @@ let imageGenerate = async function(imagePrompt,quantity){
             },
             body: JSON.stringify({
                 prompt: imagePrompt,
+                model: model,
+                temperature: 0.7,
                 n:parseInt(quantity),
                 size:"512x512",
                 response_format:"b64_json"
